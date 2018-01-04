@@ -1,0 +1,6 @@
+[submodule "dehydrated"]
+	path = dehydrated
+	url = https://github.com/lukas2511/dehydrated.git
+[submodule "letsencrypt-manual-hook"]
+	path = letsencrypt-manual-hook
+	url = https://github.com/jbjonesjr/letsencrypt-manual-hook.git
