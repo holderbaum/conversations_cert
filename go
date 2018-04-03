@@ -3,9 +3,9 @@
 set -eu
 
 function task_sign_csr {
-  if [[ ! -f 'signme.csr' ]];
+  if [[ ! -f 'holderbaum.me.csr' ]];
   then
-    echo "Please download and safe the CSR as: signme.csr"
+    echo "Please download and safe the CSR as: holderbaum.me.csr"
     exit 1
   fi
 
@@ -14,11 +14,11 @@ function task_sign_csr {
     --accept-terms
 
   ./dehydrated/dehydrated \
-    --signcsr ./signme.csr \
+    --signcsr ./holderbaum.me.csr \
     --challenge dns-01 \
     --hook hooks/manual.sh \
     --full-chain \
-    > chain.pem
+    |grep -v '# CHAIN #' |grep -v '# CERT #' |grep -v '^$' >chain.pem
 }
 
 function task_upload_chain {
