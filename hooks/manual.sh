@@ -27,12 +27,18 @@ function task_clean_challenge {
 function task_invalid_cert {
   echo ""
   echo "$@"
-  echo "A cert challenge is invalid"
+  echo "A cert is invalid"
+}
+
+function task_invalid_challenge {
+  echo ""
+  echo "$@"
+  echo "A challenge is invalid"
 }
 
 
 function task_usage {
-  echo "usage: $0 .."
+  echo "Unknown command: '$cmd'"
   exit 1
 }
 
@@ -42,6 +48,7 @@ case "$cmd" in
   deploy_challenge) task_deploy_challenge "$@" ;;
   clean_challenge) task_clean_challenge "$@" ;;
   invalid_cert) task_invalid_cert "$@" ;;
+  invalid_challenge) task_invalid_challenge "$@" ;;
   deploy_cert) ;;
   unchanged_cert) ;;
   *) task_usage ;;
